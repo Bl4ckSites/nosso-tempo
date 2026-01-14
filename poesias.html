@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poesias</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="poesias.css">
+    <style>
+        
+        
+        
+        
+        /* ESTILO APENAS PARA OS CARDS ANTIGOS (1, 2, 3) - Primeira letra dos parágrafos */
+        .old-poem-card .poem-content p::first-letter {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+        
+        /* ESTILO APENAS PARA OS NOVOS CARDS (4, 5, 6, 7, 8) - Primeira letra dos títulos */
+        .new-poem-card .poem-card-header h3::first-letter {
+            color: #ff6b6b;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+        }
+        
+        /* Remover o estilo de primeira letra dos parágrafos dos novos cards */
+        .new-poem-card .poem-content p::first-letter {
+            color: inherit;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <!-- Fundo Estrelado -->
+    <div id="stars-container"></div>
+
+    <!-- Menu Superior -->
+    <header>
+        <button class="menu-btn" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+   <!-- Menu Lateral -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="side-menu" id="sideMenu">
+        <button class="close-menu-btn" id="closeMenuBtn">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="menu-header">
+            <h2>Nossa Jornada</h2>
+            <p>2 Meses de Amor</p>
+        </div>
+        <ul class="menu-items">
+            <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+            <li><a href="momentos.html"><i class="fas fa-images"></i> Momentos</a></li>
+            <li><a href="poesias.html"><i class="fas fa-feather-alt"></i> Poesias</a></li>
+            <li><a href="quando.html" class="active"><i class="fas fa-heart"></i> Quando...</a></li>
+            <li><a href="musicas.html"><i class="fas fa-music"></i> Dedicatória</a></li>
+        </ul>
+        <div class="menu-footer">
+            <p>Feito com ❤️ para você</p>
+            <p class="cat-signature">Com amor, seu gatinho <i class="fas fa-paw"></i></p>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <div class="poems-header">
+            <h1>Poesias do Coração</h1>
+            <p>Palavras que nascem do sentimento mais puro que existe: o amor que sinto por você.</p>
+            <div class="poetry-icon-container">
+                <img src="imgs/poetry-icon.png" alt="Ícone de Poesia" class="poetry-icon">
+            </div>
+        </div>
+
+        <div class="poems-container">
+            <!-- Card 1: Alvor (ANTIGO - CLASSE old-poem-card) -->
+            <div class="poem-card old-poem-card">
+                <div class="poem-card-header">
+                    <h3>Alvor</h3>
+                </div>
+                <div class="poem-content">
+                    <p>Eu, em meio a tanto caos, percebo hoje que tudo de ruim é curto;
+                       só pareceu infinito, pois a dor era profunda.
+                       hoje, um homem crescendo,
+                       observo meu antigo eu.</p>
+                    <p>Um simples, humilde louco
+                       que encontrou a felicidade em seus braços, minha amada.
+                       quero deixar meu coração em suas mãos
+                       e unir meus lábios aos seus.</p>
+                </div>
+                
+            </div>
+
+            <!-- Card 2: Desvelo (ANTIGO - CLASSE old-poem-card) -->
+            <div class="poem-card old-poem-card">
+                <div class="poem-card-header">
+                    <h3>Desvelo</h3>
+                </div>
+                <div class="poem-content">
+                    <p>Tenho em mente todos os meus erros,
+                       feliz em saber que és meu maior e único acerto.
+                       quero viver ao teu lado pela eternidade,
+                       cada dia admirando teu belíssimo sorriso,
+                       cada momento apreciando meu tempo ao teu lado.</p>
+                    <p>E vago o sentimento da solidão,
+                       pois me encontro acompanhado da mais bela dama,
+                       da luz do meu dia.
+                       Que por incrível que pareça,
+                       és a minha dona: você.</p>
+                </div>
+               
+            </div>
+
+            <!-- Card 3: Perene (ANTIGO - CLASSE old-poem-card) -->
+            <div class="poem-card old-poem-card">
+                <div class="poem-card-header">
+                    <h3>Perene</h3>
+                </div>
+                <div class="poem-content">
+                    <p>Além de tantas palavras,
+                       o sentimento de te amar sempre ficará em meu peito.
+                       sendo minha luz, minha rainha,
+                       afastando a solidão,
+                       corrigindo meus erros,
+                       separando-me do caos
+                       e trazendo-me a sanidade.</p>
+                    <p>Moro no lar que, em meu peito, você habita.
+                       não sei se posso dizer que vivo por ti,
+                       mas quero dizer que és minha base:
+                       linda como o céu,
+                       profunda como o mar,
+                       acolhedora como a coberta que me aquece no frio
+                       e perfeita como a natureza.</p>
+                    <p>O céu fica abaixo da tua beleza,
+                       mesmo estando acima de nossas cabeças.
+                       o vento sopra forte,
+                       mas é tua presença que me deixa sem ar.
+                       tudo nesse mundo pode existir como quiser;
+                       o meu existir é ao teu lado,
+                       e por mim está tudo bem.</p>
+                </div>
+              
+            </div>
+
+            <!-- NOVOS CARDS COM ESTILO ESPECÍFICO (CLASSE new-poem-card) -->
+            
+            <!-- Card 4: Laços (NOVO) -->
+            <div class="poem-card new-poem-card">
+                <div class="poem-card-header">
+                    <h3>Laços</h3>
+                </div>
+                <div class="poem-content">
+                    <p>Em meio a tanta escuridão,
+                       Com olhos de peixe morto pela exaustão,
+                       Você surgiu na minha vida, fazendo-me viver tudo o que sempre quis,
+                       Trazendo alegria aos meus dias rotineiros,
+                       Maturidade ao meu coração,
+                       E a mais pura calma,
+                       Por estar com alguém que eu realmente amo.</p>
+                    <p>Posso não ser a pessoa mais perfeita,
+                       Muito menos o primeiro em sua história,
+                       Não fui sua primeira vez em nada,
+                       Mas sou quem lhe entrega a própria vida.</p>
+                    <p>Queria poder ser o primeiro,
+                       Mas a única coisa que farei
+                       Será ser o seu último.
+                       Ficarei ao seu lado para sempre.</p>
+                    <p>Portanto, se for chorar,
+                       Chore em meus braços;
+                       Se rir, deixe-me apreciá-la;
+                       Se estiver brava, conte-me.
+                       Não quero simplesmente estar com você,
+                       Eu quero você.</p>
+                </div>
+               
+            </div>
+
+            <!-- Card 5: Uníssono (NOVO) -->
+            <div class="poem-card new-poem-card">
+                <div class="poem-card-header">
+                    <h3>Uníssono</h3>
+                </div>
+                <div class="poem-content">
+                    <p>Quando estás adormecendo,
+                       Move-se na cama de uma forma tão especial,
+                       Fazendo-me perder-me em seu charme.
+                       Não é necessária maquiagem, muito menos acessórios,
+                       Pois sua beleza já revela o quão linda és.</p>
+                    <p>É quando falas…
+                       Perdido me encontro, afundando novamente em teu encanto.
+                       A cada palavra, um doce sentimento
+                       Que aprofunda ainda mais meu silêncio.</p>
+                    <p>Então você me pergunta
+                       O motivo desse silêncio,
+                       E eu me perco nas palavras da mente
+                       Antes mesmo de já ter me perdido na sua perfeição.</p>
+                </div>
+                
+            </div>
+
+            <!-- Card 6: Inquestionável (NOVO) -->
+            <div class="poem-card new-poem-card">
+                <div class="poem-card-header">
+                    <h3>Inquestionável</h3>
+                </div>
+                <div class="poem-content">
+                    <p>Nas longas noites calorosas,
+                       Meu sono se distancia,
+                       Mas encontro calma ao seu lado.
+                       Deito-me tarde e acordo admirado,
+                       Perdido na paz que me traz.</p>
+                    <p>Minha insônia se curva aos seus pés,
+                       Pois a calma que você me deu
+                       Abomina meu fardo.
+                       Admiro tamanha capacidade
+                       De fazer um simples vira-lata
+                       Comportar-se como um homem de classe.</p>
+                    <p>Nesses olhos que tanto viram,
+                       Nos dedos que tudo tocaram,
+                       Com o coração em suas mãos,
+                       Abro a boca que um dia lhe beijou
+                       Para prometer que jamais irei lhe trair.
+                       Você é a minha paz.</p>
+                </div>
+               
+            </div>
+
+            <!-- Card 7: Silente (NOVO) -->
+            <div class="poem-card new-poem-card">
+                <div class="poem-card-header">
+                    <h3>Silente</h3>
+                </div>
+                <div class="poem-content">
+                    <p>Nos passos silenciosos,
+                       Nos finos fios voando ao vento,
+                       Em um sorriso único,
+                       Há um passado longo.
+                       Mora o silêncio da beleza
+                       Em cada traço do seu belíssimo corpo.</p>
+                    <p>Longe de mim olhar para esses olhos azuis
+                       E não ser capaz de elogiar a alma que os habita.
+                       O primeiro sentimento nasceu
+                       Antes mesmo de os olhos alcançarem.
+                       Era como se tivesse que ser
+                       E foi.</p>
+                    <p>Obrigado por ter nascido.
+                       Deve ter sido difícil ser tão resistente,
+                       Mas saiba que, dentro dessa extensa história de luta,
+                       Agora você não caminha mais sozinha.</p>
+                </div>
+                
+            </div>
+
+            <!-- Card 8: Alva (NOVO) -->
+            <div class="poem-card new-poem-card">
+                <div class="poem-card-header">
+                    <h3>Alva</h3>
+                </div>
+                <div class="poem-content">
+                    <p>És quente como o sol do meio-dia,
+                       Aconchegante de forma incomparável.
+                       Sendo a mulher mais perfeita do mundo,
+                       E mesmo que não fosse,
+                       Ainda assim seria minha mulher.</p>
+                    <p>Em dias tão perturbadores,
+                       Acordei apenas para falar com você.
+                       O sol que brilhava no céu não me atingiu,
+                       Foi você, que brilha em meu peito,
+                       Quem me guiou com sua luz mais intensa.</p>
+                    <p>Se um dia eu me perder novamente,
+                       Mostre-me o caminho com sua luz,
+                       Que irei direto aos seus braços calorosos,
+                       Que um dia aqueceram uma pedra
+                       E a transformaram em um homem em delírios
+                       Por uma mulher única.</p>
+                    <p>Eu te amo, minha mulher.</p>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="poems-actions">
+            <a href="index.html" class="back-home">
+                <i class="fas fa-home"></i> Voltar ao Início
+            </a>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>Palavras são vento, mas as que sinto por você são raízes.</p>
+        <p>© 2026 - Feito com ❤️ para você, meu amor!!</p>
+    </footer>
+
+    <script src="console-log.js"></script>
+    <script src="poesias.js"></script>
+</body>
+</html>

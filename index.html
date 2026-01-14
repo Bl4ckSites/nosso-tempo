@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2 Meses de Amor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <!-- Fundo Estrelado -->
+    <div id="stars-container"></div>
+
+    <!-- Menu Superior -->
+    <header>
+        <button class="menu-btn" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Menu Lateral -->
+       <!-- Menu Lateral -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="side-menu" id="sideMenu">
+        <button class="close-menu-btn" id="closeMenuBtn">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="menu-header">
+            <h2>Nossa Jornada</h2>
+            <p>2 Meses de Amor</p>
+        </div>
+        <ul class="menu-items">
+            <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+            <li><a href="momentos.html"><i class="fas fa-images"></i> Momentos</a></li>
+            <li><a href="poesias.html"><i class="fas fa-feather-alt"></i> Poesias</a></li>
+            <li><a href="quando.html" class="active"><i class="fas fa-heart"></i> Quando...</a></li>
+            <li><a href="musicas.html"><i class="fas fa-music"></i> Dedicatória</a></li>
+        </ul>
+        <div class="menu-footer">
+            <p>Feito com ❤️ para você</p>
+            <p class="cat-signature">Com amor, seu gatinho <i class="fas fa-paw"></i></p>
+        </div>
+    </div>
+
+    <!-- Container de Mensagens -->
+    <main class="container">
+        <div class="messages-container">
+            <!-- Mensagem 1 -->
+            <div class="message active" id="message1">
+                <h1>2 Meses de Amor</h1>
+                <p>Hoje, 02/02/2026, celebramos 2 meses de risos, sonhos e descobertas.</p>
+                <div class="days-counter">
+                    <div class="time-unit">
+                        <div class="time-value" id="days">60</div>
+                        <div class="time-label">Dias</div>
+                    </div>
+                    <div class="time-unit">
+                        <div class="time-value" id="hours">0</div>
+                        <div class="time-label">Horas</div>
+                    </div>
+                    <div class="time-unit">
+                        <div class="time-value" id="minutes">0</div>
+                        <div class="time-label">Minutos</div>
+                    </div>
+                    <div class="time-unit">
+                        <div class="time-value" id="seconds">0</div>
+                        <div class="time-label">Segundos</div>
+                    </div>
+                </div>
+                <div class="signature">Com todo meu amor</div>
+            </div>
+
+            <!-- Mensagem 2 -->
+            <div class="message" id="message2">
+                <h2>Cada momento ao seu lado é uma memória eterna...</h2>
+                <p>Guardarei para sempre cada sorriso, cada olhar, cada abraço. 
+                São esses pequenos momentos que tornam nossa história tão especial e única.</p>
+                <div class="gold-ornament">
+                    <i class="fas fa-star gold-star"></i>
+                    <i class="fas fa-heart gold-heart"></i>
+                    <i class="fas fa-star gold-star"></i>
+                </div>
+                <div class="signature">Para sempre</div>
+            </div>
+
+            <!-- Mensagem 3 -->
+            <div class="message" id="message3">
+                <h2>Nossa história é feita de pequenos instantes mágicos...</h2>
+                <p>Como a primeira vez que nossas mãos se encontraram, o primeiro beijo, a primeira risada compartilhada. Esses instantes são as estrelas que iluminam nosso caminho.</p>
+                <div class="gold-ornament">
+                    <i class="fas fa-heart gold-heart"></i>
+                    <i class="fas fa-star gold-star"></i>
+                    <i class="fas fa-heart gold-heart"></i>
+                </div>
+                <div class="signature">Seu amor</div>
+            </div>
+
+            <!-- Mensagem 4 -->
+            <div class="message" id="message4">
+                <h1>Meu Porto Seguro</h1>
+                <p>Em seus braços encontro o conforto que minha alma precisava. Em seu sorriso, a alegria que ilumina meus dias. Em seu amor, meu lugar no mundo.</p>
+                <div class="gold-ornament">
+                    <i class="fas fa-anchor gold-anchor"></i>
+                </div>
+                <div class="signature">Sempre seu</div>
+            </div>
+
+            <!-- Mensagem 5 -->
+            <div class="message" id="message5">
+                <h2>Alguns encontros mudam nossas vidas para sempre</h2>
+                <p>E o nosso encontro foi assim: transformador, necessário, destinado. Em apenas dois meses, você já se tornou parte essencial de quem eu sou.</p>
+                <div class="gold-ornament">
+                    <i class="fas fa-gem gold-gem"></i>
+                </div>
+                <button class="cta-button"></button>
+                <div class="signature">Para você, minha eternidade</div>
+            </div>
+
+            <!-- Indicador de Mensagens -->
+            <div class="message-indicator" id="messageIndicator">
+                <div class="indicator-dot active" data-message="1"></div>
+                <div class="indicator-dot" data-message="2"></div>
+                <div class="indicator-dot" data-message="3"></div>
+                <div class="indicator-dot" data-message="4"></div>
+                <div class="indicator-dot" data-message="5"></div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+     <p>Desde 02/12/2025 até o para sempre!!</p>
+        <p>© 2026 - Feito para você.</p>
+    </footer>
+
+    <script src="console-log.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

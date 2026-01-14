@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quando pensar em...</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
+</head>
+<body>
+    <!-- Fundo Estrelado -->
+    <div id="stars-container"></div>
+
+    <!-- Menu Superior -->
+    <header>
+        <button class="menu-btn" id="menuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+    </header>
+
+    <!-- Menu Lateral -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="side-menu" id="sideMenu">
+        <button class="close-menu-btn" id="closeMenuBtn">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="menu-header">
+            <h2>Nossa Jornada</h2>
+            <p>2 Meses de Amor</p>
+        </div>
+        <ul class="menu-items">
+            <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+            <li><a href="momentos.html"><i class="fas fa-images"></i> Momentos</a></li>
+            <li><a href="poesias.html"><i class="fas fa-feather-alt"></i> Poesias</a></li>
+            <li><a href="quando.html" class="active"><i class="fas fa-heart"></i> Quando...</a></li>
+            <li><a href="musicas.html"><i class="fas fa-music"></i> Dedicatória</a></li>
+        </ul>
+        <div class="menu-footer">
+            <p>Feito com ❤️ para você</p>
+            <p class="cat-signature">Com amor, seu gatinho <i class="fas fa-paw"></i></p>
+        </div>
+    </div>
+
+    <!-- Conteúdo Principal -->
+    <main class="container">
+        <div class="quando-header">
+            <h1>Quando pensar em...</h1>
+            
+        </div>
+
+        <!-- Área do Carrossel COM SETAS LATERAIS -->
+        <div class="quando-carousel">
+            <!-- Seta esquerda -->
+            <button class="quando-carousel-arrow left" id="prevBtnLeft" aria-label="Mensagem anterior">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <!-- Wrapper dos cards -->
+            <div class="quando-cards-wrapper" id="quandoWrapper">
+                <!-- Cards serão inseridos via JavaScript -->
+            </div>
+            
+            <!-- Seta direita -->
+            <button class="quando-carousel-arrow right" id="nextBtnRight" aria-label="Próxima mensagem">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+        
+    
+        
+        <!-- Controles adicionais abaixo do carrossel -->
+        <div class="quando-controls">
+            <button class="quando-control-btn" id="prevBtnBottom" aria-label="Mensagem anterior">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            
+            <div class="quando-hint">
+               
+                <span>Use as setas ou deslize para navegar</span>
+                 </div>
+            
+            <button class="quando-control-btn" id="nextBtnBottom" aria-label="Próxima mensagem">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+        </div>
+
+        <!-- Botão para voltar ao início -->
+        <div class="quando-actions">
+            <a href="index.html" class="back-home">
+                <i class="fas fa-home"></i> Voltar ao Início
+            </a>
+        </div>
+    </main>
+
+    <!-- Rodapé -->
+    <footer>
+       
+        <p>©2026 - Feito para você mesma!</p>
+    </footer>
+
+
+    <script src="console-log.js"></script>
+    <script src="script.js"></script>
+    <script src="quando.js"></script>
+    
+    <script>
+        // Garantir que as estrelas sejam criadas mesmo se o script.js não fizer
+        document.addEventListener('DOMContentLoaded', function() {
+            // Verificar se a função createStars existe
+            if (typeof createStars === 'function') {
+                createStars();
+            } else {
+                // Fallback se a função não existir
+                console.log('Criando estrelas manualmente...');
+                const starsContainer = document.getElementById('stars-container');
+                if (starsContainer) {
+                    const starsCount = window.innerWidth < 768 ? 200 : 400;
+                    
+                    for (let i = 0; i < starsCount; i++) {
+                        const star = document.createElement('div');
+                        star.classList.add('star');
+                        
+                        if (Math.random() < 0.1) {
+                            star.classList.add('special-star');
+                        }
+                        
+                        const size = Math.random() * 3 + 1;
+                        star.style.width = `${size}px`;
+                        star.style.height = `${size}px`;
+                        star.style.left = `${Math.random() * 100}%`;
+                        star.style.top = `${Math.random() * 100}%`;
+                        star.style.opacity = Math.random() * 0.7 + 0.3;
+                        
+                        const duration = Math.random() * 8 + 5;
+                        star.style.animationDuration = `${duration}s`;
+                        star.style.animationDelay = `${Math.random() * 5}s`;
+                        
+                        starsContainer.appendChild(star);
+                    }
+                }
+            }
+            
+            // Inicializar menu se as funções existirem
+            if (typeof toggleMenu === 'function') {
+                console.log('Menu functions available');
+            }
+        });
+    </script>
+</body>
+</html>

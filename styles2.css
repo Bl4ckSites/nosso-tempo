@@ -1,0 +1,941 @@
+/* Estilos Adicionais - Elementos Dourados e Detalhes */
+
+/* Elementos Dourados */
+.gold-ornament {
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.gold-star, .gold-heart, .gold-anchor, .gold-gem {
+    color: #D4AF37;
+    font-size: 2rem;
+    text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
+    animation: gentlePulse 3s infinite ease-in-out;
+}
+
+.gold-star {
+    animation-delay: 0.2s;
+}
+
+.gold-heart {
+    animation-delay: 0.4s;
+}
+
+.gold-anchor {
+    font-size: 2.5rem;
+}
+
+.gold-gem {
+    font-size: 2.8rem;
+}
+
+@keyframes gentlePulse {
+    0%, 100% {
+        opacity: 0.8;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+}
+
+/* Detalhes Dourados no Menu */
+.menu-items a:hover i {
+    color: #D4AF37;
+}
+
+.menu-header h2 {
+    background: linear-gradient(45deg, #ff4d88, #D4AF37);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Detalhes Dourados no Contador */
+.time-unit {
+    position: relative;
+}
+
+.time-unit::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: linear-gradient(45deg, #b3003b, #D4AF37, #ff3385);
+    border-radius: 14px;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.time-unit:hover::after {
+    opacity: 0.5;
+}
+
+/* Animações Específicas para Mensagens */
+@keyframes messageEntrance {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.message.active {
+    animation: messageEntrance 1.5s ease forwards;
+}
+
+/* Estrelas Especiais */
+.special-star {
+    background-color: #D4AF37;
+    box-shadow: 0 0 10px #D4AF37, 0 0 20px #D4AF37;
+}
+
+/* Efeito de Brilho no Fundo */
+.shine-effect {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 20% 30%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(179, 0, 59, 0.05) 0%, transparent 50%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Estilos para a página de momentos */
+.moments-header {
+    text-align: center;
+    padding: 120px 20px 40px;
+}
+
+.moments-header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #ff4d88;
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px rgba(255, 77, 136, 0.5);
+}
+
+.moments-header p {
+    font-size: 1.2rem;
+    color: #cc99b3;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.moments-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto 60px;
+}
+
+.moment-card {
+    background-color: rgba(179, 0, 59, 0.15);
+    border-radius: 15px;
+    padding: 20px;
+    border: 2px solid #D4AF37;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.moment-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(212, 175, 55, 0.3);
+    border-color: #ff4d88;
+}
+
+.moment-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #b3003b, #D4AF37, #ff3385);
+}
+
+.card-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #ff99c2;
+    margin-bottom: 10px;
+}
+
+.card-date {
+    font-size: 0.9rem;
+    color: #D4AF37;
+    margin-bottom: 15px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.card-caption {
+    font-size: 1rem;
+    color: #f2e6ef;
+    line-height: 1.6;
+    flex-grow: 1;
+}
+
+.cat-paw {
+    position: absolute;
+    color: rgba(212, 175, 55, 0.2);
+    font-size: 1.5rem;
+    z-index: -1;
+}
+
+.back-home {
+    display: block;
+    margin: 40px auto;
+    padding: 12px 30px;
+    background: linear-gradient(to right, #b3003b, #ff3385);
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(179, 0, 59, 0.4);
+    text-align: center;
+    max-width: 200px;
+}
+
+.back-home:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(179, 0, 59, 0.6);
+    background: linear-gradient(to right, #ff3385, #ff66a3);
+}
+
+/* Estilos para a página de músicas */
+.music-header {
+    text-align: center;
+    padding: 120px 20px 40px;
+}
+
+.music-header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #ff4d88;
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px rgba(255, 77, 136, 0.5);
+}
+
+.music-header p {
+    font-size: 1.2rem;
+    color: #cc99b3;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+.music-container {
+    max-width: 800px;
+    margin: 0 auto 80px;
+    padding: 0 20px;
+}
+
+.music-player {
+    background-color: rgba(179, 0, 59, 0.15);
+    border-radius: 20px;
+    padding: 30px;
+    border: 2px solid #D4AF37;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.album-cover {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #ff4d88;
+    margin-bottom: 25px;
+    box-shadow: 0 0 30px rgba(255, 77, 136, 0.5);
+}
+
+.now-playing {
+    font-size: 1.5rem;
+    color: #ff99c2;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
+}
+
+.song-title {
+    font-size: 2.2rem;
+    color: #D4AF37;
+    margin-bottom: 10px;
+    font-family: 'Dancing Script', cursive;
+}
+
+.song-artist {
+    font-size: 1.2rem;
+    color: #cc99b3;
+    margin-bottom: 30px;
+}
+
+.player-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.control-btn {
+    background: transparent;
+    border: none;
+    color: #ff4d88;
+    font-size: 2rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control-btn:hover {
+    color: #D4AF37;
+    background-color: rgba(212, 175, 55, 0.1);
+    transform: scale(1.1);
+}
+
+.play-btn {
+    background-color: rgba(255, 77, 136, 0.2);
+    font-size: 2.5rem;
+}
+
+.playlist {
+    margin-top: 50px;
+}
+
+.playlist h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #ff99c2;
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.playlist-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 15px;
+    background-color: rgba(179, 0, 59, 0.1);
+    border-radius: 10px;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.playlist-item:hover {
+    background-color: rgba(179, 0, 59, 0.2);
+    border-left-color: #D4AF37;
+    transform: translateX(5px);
+}
+
+.playlist-item.active {
+    background-color: rgba(179, 0, 59, 0.25);
+    border-left-color: #ff4d88;
+}
+
+.playlist-number {
+    font-size: 1.2rem;
+    color: #D4AF37;
+    margin-right: 15px;
+    min-width: 30px;
+}
+
+.playlist-info {
+    flex-grow: 1;
+}
+
+.playlist-title {
+    font-size: 1.1rem;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
+.playlist-artist {
+    font-size: 0.9rem;
+    color: #cc99b3;
+}
+
+.playlist-duration {
+    color: #cc99b3;
+    font-size: 0.9rem;
+}
+
+/* Detalhes para Dispositivos Grandes */
+@media (min-width: 1200px) {
+    .message h1 {
+        font-size: 4rem;
+    }
+    
+    .message h2 {
+        font-size: 2.5rem;
+    }
+    
+    .gold-ornament {
+        gap: 30px;
+    }
+    
+    .gold-star, .gold-heart {
+        font-size: 2.5rem;
+    }
+    
+    .moments-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .moments-header h1, .music-header h1 {
+        font-size: 2.8rem;
+    }
+    
+    .moments-container {
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+    }
+    
+    .card-title {
+        font-size: 1.5rem;
+    }
+    
+    .album-cover {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .song-title {
+        font-size: 1.8rem;
+    }
+    
+    .control-btn {
+        font-size: 1.8rem;
+        width: 50px;
+        height: 50px;
+    }
+    
+    .play-btn {
+        font-size: 2.2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .moments-header, .music-header {
+        padding: 100px 20px 30px;
+    }
+    
+    .moments-header h1, .music-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .moments-container {
+        grid-template-columns: 1fr;
+    }
+    
+    .album-cover {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .player-controls {
+        gap: 15px;
+    }
+}
+
+/* Transição Suave para Todas as Animações */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, opacity 0.5s ease;
+}
+
+
+
+
+
+
+
+
+  
+
+/* ===== ESTILOS PARA QUANDO.HTML - CARROSSEL ===== */
+
+/* Header da página */
+.quando-header {
+    text-align: center;
+    padding: 120px 20px 40px;
+    animation: messageEntrance 1.5s ease forwards;
+}
+
+.quando-header h1 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: #ff4d88;
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px rgba(255, 77, 136, 0.5);
+}
+
+.quando-header p {
+    font-size: 1.2rem;
+    color: #cc99b3;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+/* Container do carrossel - MODIFICADO para acomodar setas laterais */
+.quando-carousel {
+    max-width: 1000px; /* Aumentado para dar espaço às setas */
+    margin: 0 auto 40px;
+    padding: 0 80px; /* Mais espaço nas laterais para as setas */
+    position: relative;
+    height: 500px;
+    overflow: hidden;
+}
+
+/* Setas laterais do carrossel */
+.quando-carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(179, 0, 59, 0.3);
+    border: 2px solid rgba(255, 77, 136, 0.5);
+    color: #ff4d88;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    font-size: 2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+    z-index: 10;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.quando-carousel-arrow:hover {
+    background: rgba(179, 0, 59, 0.5);
+    transform: translateY(-50%) scale(1.1);
+    box-shadow: 0 8px 25px rgba(255, 77, 136, 0.4);
+    border-color: #ff4d88;
+}
+
+.quando-carousel-arrow:focus {
+    outline: none;
+    border-color: #ff4d88;
+    box-shadow: 0 0 0 3px rgba(255, 77, 136, 0.5);
+}
+
+.quando-carousel-arrow.left {
+    left: 10px;
+}
+
+.quando-carousel-arrow.right {
+    right: 10px;
+}
+
+/* Wrapper dos cards - estilo carrossel */
+.quando-cards-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+/* Card de quando - Fundo mais claro para melhor legibilidade */
+.quando-card {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(179, 0, 59, 0.25);
+    border-radius: 15px;
+    padding: 40px;
+    border: 2px solid #D4AF37;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transition: all 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    opacity: 0;
+    transform: translateX(100px) scale(0.95);
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 1;
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.quando-card:focus {
+    outline: none;
+    border-color: #ff4d88;
+}
+
+.quando-card.active {
+    opacity: 1;
+    transform: translateX(0) scale(1);
+    z-index: 3;
+    animation: cardEntrance 0.8s ease forwards;
+}
+
+.quando-card.prev {
+    opacity: 0;
+    transform: translateX(-100px) scale(0.95);
+    z-index: 1;
+}
+
+.quando-card.next {
+    opacity: 0;
+    transform: translateX(100px) scale(0.95);
+    z-index: 1;
+}
+
+.quando-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #b3003b, #D4AF37, #ff3385);
+}
+
+/* Efeito de clique - removido o outline verde */
+.quando-card:active {
+    transform: scale(1.02);
+    border-color: #ff4d88;
+}
+
+/* Conteúdo do card - texto mais legível */
+.card-question {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    color: #ffccdd;
+    margin-bottom: 40px;
+    line-height: 1.5;
+    text-align: center;
+    flex: 0 0 auto;
+    min-height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(179, 0, 59, 0.2);
+    border-radius: 10px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* RESPOSTA MAIS ESCURA para melhor contraste */
+.card-answer {
+    font-size: 1.4rem;
+    color: #ffffff;
+    line-height: 1.7;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 30px;
+    background: rgba(20, 5, 20, 0.7); /* MUITO mais escuro para melhor contraste */
+    border-radius: 12px;
+    border-left: 4px solid #ff4d88;
+    font-style: italic;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+    box-shadow: inset 0 2px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* Rodapé do card */
+.card-counter {
+    text-align: center;
+    margin-top: 20px;
+    color: #ffccdd;
+    font-size: 1rem;
+    flex: 0 0 auto;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+.counter {
+    display: inline-block;
+    background: rgba(212, 175, 55, 0.2);
+    padding: 8px 25px;
+    border-radius: 50px;
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: #ffdd99;
+}
+
+/* Controles abaixo do carrossel (setas menores para navegação adicional) */
+.quando-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto 20px;
+    gap: 40px;
+    position: relative;
+    z-index: 10;
+}
+
+.quando-control-btn {
+    background: rgba(212, 175, 55, 0.2);
+    border: 2px solid rgba(212, 175, 55, 0.3);
+    color: #D4AF37;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+    -webkit-tap-highlight-color: transparent;
+    outline: none;
+}
+
+.quando-control-btn:hover {
+    background: rgba(212, 175, 55, 0.3);
+    transform: scale(1.1);
+    box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+    border-color: #D4AF37;
+}
+
+.quando-control-btn:focus {
+    outline: none;
+    border-color: #D4AF37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.5);
+}
+
+/* Ações */
+.quando-actions {
+    text-align: center;
+    margin: 40px auto 60px;
+}
+
+/* Instruções */
+.quando-instructions {
+    text-align: center;
+    margin: 20px auto 10px;
+    color: #cc99b3;
+    font-size: 0.95rem;
+    opacity: 0.8;
+}
+
+/* Dica de navegação */
+.quando-hint {
+    text-align: center;
+    color: #cc99b3;
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.quando-hint i {
+    font-size: 0.8rem;
+}
+
+/* Animações */
+@keyframes cardEntrance {
+    from {
+        opacity: 0;
+        transform: translateX(40px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* ===== RESPONSIVIDADE ===== */
+
+/* Tablet */
+@media (max-width: 768px) {
+    .quando-header {
+        padding: 100px 20px 30px;
+    }
+    
+    .quando-header h1 {
+        font-size: 2.8rem;
+    }
+    
+    .quando-carousel {
+        height: 450px;
+        padding: 0 70px; /* Reduzir um pouco o padding para tablets */
+    }
+    
+    .quando-carousel-arrow {
+        width: 60px;
+        height: 60px;
+        font-size: 1.8rem;
+    }
+    
+    .quando-carousel-arrow.left {
+        left: 5px;
+    }
+    
+    .quando-carousel-arrow.right {
+        right: 5px;
+    }
+    
+    .quando-card {
+        padding: 30px;
+    }
+    
+    .card-question {
+        font-size: 1.5rem;
+        min-height: 80px;
+        padding: 15px;
+        margin-bottom: 30px;
+    }
+    
+    .card-answer {
+        font-size: 1.2rem;
+        padding: 25px;
+    }
+    
+    .quando-control-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    .quando-controls {
+        gap: 30px;
+    }
+}
+
+/* Mobile - Card quadrado */
+@media (max-width: 480px) {
+    .quando-header h1 {
+        font-size: 2.2rem;
+    }
+    
+    .quando-carousel {
+        height: 500px;
+        padding: 0 60px; /* Reduzir ainda mais para mobile */
+    }
+    
+    .quando-carousel-arrow {
+        width: 50px;
+        height: 50px;
+        font-size: 1.5rem;
+    }
+    
+    .quando-carousel-arrow.left {
+        left: 2px;
+    }
+    
+    .quando-carousel-arrow.right {
+        right: 2px;
+    }
+    
+    .quando-card {
+        padding: 25px;
+    }
+    
+    .card-question {
+        font-size: 1.3rem;
+        min-height: 90px;
+        padding: 15px;
+        margin-bottom: 25px;
+    }
+    
+    .card-answer {
+        font-size: 1.1rem;
+        padding: 20px;
+        background: rgba(15, 3, 15, 0.8); /* Ainda mais escuro em mobile */
+    }
+    
+    .quando-control-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .quando-controls {
+        gap: 20px;
+    }
+}
+
+/* Adicionar estilos para remover outlines indesejados em todo o site */
+*:focus {
+    outline: none !important;
+}
+
+button:focus, 
+a:focus, 
+.quando-card:focus, 
+.quando-nav-btn:focus,
+.quando-carousel-arrow:focus,
+.quando-control-btn:focus {
+    outline: none !important;
+    box-shadow: 0 0 0 2px rgba(255, 77, 136, 0.5) !important;
+}
+
+
+/* Desktop (>1024px): setas laterais SIM, inferiores NÃO */
+@media (min-width: 1025px) {
+    .quando-carousel-arrow { display: flex !important; }
+    .quando-control-btn { display: none !important; }
+    .quando-carousel { padding: 0 80px; }
+}
+
+/* Tablet (769px-1024px): setas laterais NÃO, inferiores SIM */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .quando-carousel-arrow { display: none !important; }
+    .quando-control-btn { display: flex !important; }
+    .quando-carousel { padding: 0 20px; }
+}
+
+/* Mobile (≤768px): setas laterais NÃO, inferiores SIM */
+@media (max-width: 768px) {
+    .quando-carousel-arrow { display: none !important; }
+    .quando-control-btn { display: flex !important; }
+    .quando-carousel { padding: 0 15px; }
+}
+
+
+
+
+
+
+
