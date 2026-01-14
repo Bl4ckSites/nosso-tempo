@@ -195,3 +195,53 @@ window.addEventListener('resize', () => {
 
 // Inicializa o site quando o DOM estiver carregado
 document.addEventListener('DOMContentLoaded', init);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Cole no console do navegador (F12) e execute
+console.log('🔍 VERIFICAÇÃO DE FAVICONS');
+
+// 1. Verificar todos os links de ícone
+const links = document.querySelectorAll('link[rel*="icon"], link[rel="manifest"]');
+links.forEach(link => {
+    console.log(`${link.rel}: ${link.href}`);
+    
+    // Testar se arquivo existe
+    fetch(link.href)
+        .then(res => console.log(`   ✅ ${link.href} - ${res.ok ? 'EXISTE' : '404'}`))
+        .catch(err => console.log(`   ❌ ${link.href} - ERRO: ${err.message}`));
+});
+
+// 2. Verificar manifest
+const manifestLink = document.querySelector('link[rel="manifest"]');
+if (manifestLink) {
+    fetch(manifestLink.href)
+        .then(res => res.json())
+        .then(data => {
+            console.log('📱 MANIFEST ENCONTRADO:', data);
+            console.log('Ícones no manifest:', data.icons.length);
+        })
+        .catch(err => console.log('❌ ERRO no manifest:', err));
+}
+
+// 3. Verificar favicon padrão do navegador
+console.log('🎯 Favicon detectado pelo navegador:');
+console.log(document.querySelector('link[rel="shortcut icon"]')?.href || 'Nenhum');
+
+
+
+
+
+
+
+
