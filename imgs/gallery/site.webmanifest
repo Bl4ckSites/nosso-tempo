@@ -2,61 +2,33 @@
   "name": "Nosso Tempo - 2 Meses de Namoro",
   "short_name": "NossoTempo",
   "description": "Site romântico para celebrar 2 meses de namoro",
-  "start_url": "/",
+  "start_url": "/nosso-tempo/",
+  "scope": "/nosso-tempo/",
   "display": "standalone",
   "background_color": "#ff69b4",
   "theme_color": "#ff69b4",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/imgs/gallery/favicon-72x72.png",
-      "sizes": "72x72",
-      "type": "image/png"
-    },
-    {
-      "src": "/imgs/gallery/favicon-96x96.png",
+      "src": "imgs/gallery/favicon-96x96.png",
       "sizes": "96x96",
       "type": "image/png"
     },
     {
-      "src": "/imgs/gallery/favicon-128x128.png",
-      "sizes": "128x128",
-      "type": "image/png"
-    },
-    {
-      "src": "/imgs/gallery/favicon-144x144.png",
-      "sizes": "144x144",
-      "type": "image/png"
-    },
-    {
-      "src": "/imgs/gallery/favicon-152x152.png",
-      "sizes": "152x152",
-      "type": "image/png"
-    },
-    {
-      "src": "/imgs/gallery/favicon-192x192.png",
+      "src": "imgs/gallery/web-app-manifest-192x192.png",
       "sizes": "192x192",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
-      "src": "/imgs/gallery/favicon-384x384.png",
-      "sizes": "384x384",
-      "type": "image/png"
-    },
-    {
-      "src": "/imgs/gallery/favicon-512x512.png",
+      "src": "imgs/gallery/web-app-manifest-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
     },
     {
-      "src": "/imgs/gallery/apple-touch-icon.png",
+      "src": "imgs/gallery/apple-touch-icon.png",
       "sizes": "180x180",
       "type": "image/png"
-    },
-    {
-      "src": "/imgs/gallery/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml"
     }
   ]
 }
