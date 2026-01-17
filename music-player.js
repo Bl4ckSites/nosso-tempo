@@ -29,7 +29,7 @@ const playlist = [
     },
     {
         id: 2,
-        title: "Partilha",
+        title: "Partilhar",
         artist: "Ana vitoria e Rubel",
         duration: "7:02",
         file: "sons/musica2.mp3"
