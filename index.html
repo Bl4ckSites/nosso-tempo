@@ -17,6 +17,32 @@
     <meta name="theme-color" content="#ff69b4">
 </head>
 <body>
+
+<script>
+  (function() {
+    // Data do início: 2 de dezembro de 2025
+    const startDate = new Date('2025-12-02T00:00:00');
+
+    function atualizarContador() {
+      const agora = new Date();
+      const diferenca = agora - startDate;
+
+      const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+      const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+      const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+      document.getElementById('days').textContent = dias;
+      document.getElementById('hours').textContent = horas.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutos.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = segundos.toString().padStart(2, '0');
+    }
+
+    atualizarContador(); // chama imediatamente
+    setInterval(atualizarContador, 1000); // atualiza a cada segundo
+  })();
+</script>
+    
      <!-- Fundo Estrelado -->
         <div id="stars-container"></div>
     
