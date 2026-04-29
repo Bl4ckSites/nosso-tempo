@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Um novo recomeço...</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
+    <link rel="stylesheet" href="poesias.css">
+    
+    <style>
+        /* ===== ESTILO DO "LER MAIS" PROGRESSIVO ===== */
+        .poem-content .texto-curto {
+            transition: opacity 0.3s ease;
+        }
+        
+        /* Container que guarda as linhas extras, agrupadas em blocos */
+        .poem-content .texto-extra {
+            display: none;
+            margin-top: 0.5rem;
+        }
+        
+        .poem-content .texto-extra.visivel {
+            display: block;
+        }
+        
+        .ler-mais-btn {
+            display: inline-block;
+            margin-top: 0.8rem;
+            color: #8b5e3c;
+            font-weight: 600;
+            font-size: 0.9rem;
+            cursor: pointer;
+            user-select: none;
+            letter-spacing: 0.3px;
+            border-bottom: 1px dashed #8b5e3c;
+            transition: color 0.2s, border-color 0.2s;
+        }
+        
+        .ler-mais-btn:hover {
+            color: #5c3a1e;
+            border-bottom-color: #5c3a1e;
+        }
+        
+        .linha-vazia {
+    height: 0.8rem;   /* espaço entre estrofes */
+    margin: 0;
+    padding: 0;
+    line-height: 0.8rem;
+}
+    </style>
+</head>
+<body>
+    <!-- Fundo Estrelado -->
+    <div id="stars-container"></div>
+
+    <main class="container">
+        <div class="poems-header">
+            <h1>Um novo recomeço...</h1>
+        </div>
+
+        <div class="poems-container" id="lista-poesias">
+            Carregando…
+        </div>
+
+        <div class="poems-actions">
+            <a href="poesias.html" class="back-home">
+                <i class="fas fa-arrow-left"></i> Voltar</a>
+        </div>
+    </main>
+
+    <!-- Script que gera as estrelas (mantenha se já funcionava) -->
+    <script src="console-log.js"></script>
+    
+    <script src="poesias.js"></script>
+    
+    <!-- Script principal como módulo (Firebase + "ler mais" progressivo) -->
+    <script type="module" src="mais-poesias.js"></script>
+</body>
+</html>
