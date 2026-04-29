@@ -62,106 +62,126 @@ menuToggle.addEventListener('click', toggleMenu);
 menuOverlay.addEventListener('click', toggleMenu);
 closeMenuBtn.addEventListener('click', toggleMenu);
 
-// Controle das mensagens sequenciais
+// Controle das mensagens sequenciais (melhorado)
 const messages = document.querySelectorAll('.message');
 const indicators = document.querySelectorAll('.indicator-dot');
 let currentMessageIndex = 0;
 let messageInterval;
-const MESSAGE_DISPLAY_TIME = 12000; // 12 segundos por mensagem
+let pauseAutoPlay = false; // pausa quando o mouse está sobre as mensagens
+const MESSAGE_DISPLAY_TIME = 12000; // 12 segundos
+
+// Barra de progresso (opcional: insira <div id="progressBar" class="message-progress"></div> após os indicadores)
+function updateProgressBar(remainingTime, totalTime) {
+    const bar = document.getElementById('progressBar');
+    if (!bar) return;
+    const percent = ((totalTime - remainingTime) / totalTime) * 100;
+    bar.style.width = `${percent}%`;
+}
 
 function showMessage(index) {
-    // Esconde todas as mensagens
-    messages.forEach(msg => {
-        msg.classList.remove('active');
-    });
-    
-    // Remove a classe ativa de todos os indicadores
-    indicators.forEach(indicator => {
-        indicator.classList.remove('active');
-    });
-    
-    // Mostra a mensagem selecionada
+    // Remove 'active' com fade
+    messages.forEach(msg => msg.classList.remove('active'));
+    indicators.forEach(ind => ind.classList.remove('active'));
+
+    // Adiciona classe com animação
     messages[index].classList.add('active');
     indicators[index].classList.add('active');
     currentMessageIndex = index;
-    
-    // Log no console
-    console.log(`Mostrando mensagem ${index + 1}: "${messages[index].querySelector('h1, h2').textContent}"`);
-    
-    // Reinicia o intervalo automático
-    resetMessageInterval();
+
+    resetAutoPlay();
 }
 
 function nextMessage() {
-    let nextIndex = currentMessageIndex + 1;
-    if (nextIndex >= messages.length) {
-        nextIndex = 0;
-    }
+    let nextIndex = (currentMessageIndex + 1) % messages.length;
     showMessage(nextIndex);
 }
 
-function resetMessageInterval() {
-    clearInterval(messageInterval);
-    messageInterval = setInterval(nextMessage, MESSAGE_DISPLAY_TIME);
-    console.log(`Próxima mensagem em ${MESSAGE_DISPLAY_TIME/1000} segundos`);
+function prevMessage() {
+    let prevIndex = (currentMessageIndex - 1 + messages.length) % messages.length;
+    showMessage(prevIndex);
 }
 
-// Adiciona evento de clique aos indicadores
-indicators.forEach(indicator => {
-    indicator.addEventListener('click', () => {
-        const messageIndex = parseInt(indicator.getAttribute('data-message')) - 1;
-        showMessage(messageIndex);
-    });
+function resetAutoPlay() {
+    clearInterval(messageInterval);
+    if (!pauseAutoPlay) {
+        messageInterval = setInterval(() => {
+            nextMessage();
+        }, MESSAGE_DISPLAY_TIME);
+    }
+}
+
+// Pausa quando o mouse entra no container de mensagens
+document.querySelector('.messages-container').addEventListener('mouseenter', () => {
+    pauseAutoPlay = true;
+    clearInterval(messageInterval);
 });
 
-// Atualiza o contador em tempo real
+document.querySelector('.messages-container').addEventListener('mouseleave', () => {
+    pauseAutoPlay = false;
+    resetAutoPlay();
+});
+
+// Indicadores clicáveis
+indicators.forEach((indicator, idx) => {
+    indicator.addEventListener('click', () => showMessage(idx));
+});
+
+// Navegação por teclado
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowRight') {
+        e.preventDefault();
+        nextMessage();
+    } else if (e.key === 'ArrowLeft') {
+        e.preventDefault();
+        prevMessage();
+    }
+});
+
+// Contador em tempo real com requestAnimationFrame
 function updateCounter() {
     const daysElement = document.getElementById('days');
     const hoursElement = document.getElementById('hours');
     const minutesElement = document.getElementById('minutes');
     const secondsElement = document.getElementById('seconds');
-    
-    // Data de início do relacionamento: 02/12/2025
+    if (!daysElement || !hoursElement || !minutesElement || !secondsElement) return;
+
     const startDate = new Date('2025-12-02T00:00:00');
-    
+
     function update() {
         const now = new Date();
         const diff = now - startDate;
-        
+
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
         const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-        
+
         daysElement.textContent = days;
         hoursElement.textContent = hours.toString().padStart(2, '0');
         minutesElement.textContent = minutes.toString().padStart(2, '0');
         secondsElement.textContent = seconds.toString().padStart(2, '0');
-        
-        // Log a cada minuto
-        if (seconds === 0) {
-            console.log(`Tempo de relacionamento: ${days} dias, ${hours}h ${minutes}m`);
-        }
+
+        requestAnimationFrame(update);
     }
-    
+
     update();
-    setInterval(update, 1000);
-    
-    console.log('Contador iniciado a partir de 02/12/2025');
 }
 
-// Botão "Reacenda a Conexão"
-document.querySelector('.cta-button').addEventListener('click', () => {
-    showMessage(0); // Volta para a primeira mensagem
-    // Efeito especial
-    const btn = document.querySelector('.cta-button');
-    btn.style.transform = 'scale(0.95)';
-    setTimeout(() => {
-        btn.style.transform = '';
-    }, 200);
-    
-    console.log('Botão "Reacenda a Conexão" clicado - Retornando à primeira mensagem');
-});
+// Botão CTA (se existir)
+const ctaButton = document.querySelector('.cta-button');
+if (ctaButton) {
+    ctaButton.addEventListener('click', () => {
+        showMessage(0);
+        ctaButton.style.transform = 'scale(0.95)';
+        setTimeout(() => {
+            ctaButton.style.transform = '';
+        }, 200);
+    });
+}
+
+// Inicialização
+showMessage(0);
+updateCounter();
 
 // Inicialização
 function init() {
