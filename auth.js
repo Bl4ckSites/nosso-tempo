@@ -22,10 +22,12 @@ const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
-// ⚠️ ALTERE APENAS ESTE E‑MAIL SE PRECISAR
-const EMAIL_AUTORIZADO = "rogerbastos18y@gmail.com";
-const EMAIL_AUTORIZADO = "luisamachado.s.miranda@gmail.com";
-const EMAIL_AUTORIZADO = "misteriosamisterio123@gmail.com";
+// ⚠️ LISTA DE E‑MAILS AUTORIZADOS
+const EMAILS_AUTORIZADOS = [
+  "rogerbastos18y@gmail.com",
+  "luisamachado.s.miranda@gmail.com",
+  "misteriosamisterio123@gmail.com"
+];
 
 const overlay = document.getElementById("login-overlay");
 const conteudo = document.getElementById("conteudo-principal");
@@ -43,7 +45,7 @@ function esconderErro() {
 
 // Gerencia visualização
 function gerenciarAcesso(user) {
-  if (user && user.email === EMAIL_AUTORIZADO) {
+  if (user && EMAILS_AUTORIZADOS.includes(user.email)) {
     overlay.style.display = "none";
     conteudo.style.display = "block";
   } else {
@@ -52,11 +54,10 @@ function gerenciarAcesso(user) {
 
     if (user) {
       signOut(auth);
-      mostrarErro("E-mail não autorizado. Use a conta permitida.");
+      mostrarErro("E-mail não autorizado. Use uma conta permitida.");
     }
   }
 }
-
 // Escuta mudanças de login
 onAuthStateChanged(auth, gerenciarAcesso);
 
