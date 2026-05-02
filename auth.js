@@ -25,6 +25,7 @@ const provider = new GoogleAuthProvider();
 // ⚠️ ALTERE APENAS ESTE E‑MAIL SE PRECISAR
 const EMAIL_AUTORIZADO = "rogerbastos18y@gmail.com";
 const EMAIL_AUTORIZADO = "luisamachado.s.miranda@gmail.com";
+const EMAIL_AUTORIZADO = "misteriosamisterio123@gmail.com";
 
 const overlay = document.getElementById("login-overlay");
 const conteudo = document.getElementById("conteudo-principal");
