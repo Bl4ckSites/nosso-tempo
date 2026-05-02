@@ -24,8 +24,7 @@ const provider = new GoogleAuthProvider();
 
 // ⚠️ LISTA DE E‑MAILS AUTORIZADOS
 const EMAILS_AUTORIZADOS = [
-  "rogerbastos18y@gmail.com",
-  "luisamachado.s.miranda@gmail.com",
+  
   "misteriosamisterio123@gmail.com"
 ];
 
