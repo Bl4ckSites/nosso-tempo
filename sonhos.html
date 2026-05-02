@@ -152,53 +152,21 @@
             padding: 0 20px;
         }
 
-        /* ===== CABEÇALHO COM FOTO ===== */
+        /* ===== CABEÇALHO SEM FOTO ===== */
         .header-topo {
             text-align: center;
             padding: 30px 20px 10px;
             position: relative;
         }
+        /* 
+           FOTO: Para adicionar a foto da Luisa, descomente o bloco abaixo e ajuste o src:
+           <div class="moldura-foto">
+               <img src="imgs/gallery/luisa.jpg" alt="Minha Luisa">
+           </div>
+        */
         .moldura-foto {
-            display: inline-block;
-            width: clamp(100px, 22vw, 140px);
-            height: clamp(100px, 22vw, 140px);
-            border-radius: 50%;
-            border: 3px solid var(--ouro);
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5), 0 0 60px rgba(255, 77, 136, 0.25);
-            overflow: hidden;
-            position: relative;
-            animation: pulsarMoldura 3s ease-in-out infinite;
-            transition: all 0.4s;
-        }
-        @keyframes pulsarMoldura {
-            0%,
-            100% {
-                box-shadow: 0 0 30px rgba(212, 175, 55, 0.5), 0 0 60px rgba(255, 77, 136, 0.25);
-            }
-            50% {
-                box-shadow: 0 0 45px rgba(212, 175, 55, 0.75), 0 0 80px rgba(255, 77, 136, 0.45);
-            }
-        }
-        .moldura-foto img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .moldura-foto::after {
-            content: '';
-            position: absolute;
-            inset: 0;
-            border-radius: 50%;
-            border: 2px solid transparent;
-            border-top-color: rgba(255, 255, 255, 0.4);
-            animation: girarAnel 8s linear infinite;
-            pointer-events: none;
-        }
-        @keyframes girarAnel {
-            to {
-                transform: rotate(360deg);
-            }
+            /* Caso queira usar depois, mantenha a classe. Por enquanto, display: none */
+            display: none;
         }
         .header-topo .nome-ela {
             font-family: 'Dancing Script', cursive;
@@ -525,11 +493,6 @@
             .header-topo .nome-ela {
                 font-size: 1.7rem;
             }
-            .moldura-foto {
-                width: 85px;
-                height: 85px;
-                border-width: 2px;
-            }
             .poems-header h1 {
                 font-size: 2rem;
             }
@@ -573,10 +536,6 @@
             .cartao-sonho .mensagem-revelada {
                 font-size: 0.7rem;
             }
-            .moldura-foto {
-                width: 70px;
-                height: 70px;
-            }
         }
         @media screen and (min-width: 1024px) {
             .sonhos-container {
@@ -617,22 +576,21 @@
     <div id="conteudo-principal">
         <main class="container">
 
-            <!-- CABEÇALHO COM FOTO DELA -->
+            <!-- CABEÇALHO (SEM FOTO) -->
             <div class="header-topo">
-                <div class="moldura-foto">
-                    <!-- 🔽 ALTERE O CAMINHO PARA A FOTO DA SUA AMADA 🔽 -->
-                    <img src="imgs/gallery/guia.jpg"
-                    alt="Minha Guia"
-                    loading="eager"
-                    onerror="this.style.display='none'; this.parentElement.innerHTML='<span style=font-size:3rem;line-height:1;display:flex;align-items:center;justify-content:center;width:100%;height:100%;>👸🏻</span>';">
+                <!-- 
+                FOTO: Para adicionar a foto da Luisa, descomente e ajuste o src:
+                <div class="moldura-foto" style="display: inline-block;">
+                    <img src="imgs/gallery/luisa.jpg" alt="Minha Luisa">
                 </div>
-                <p class="nome-ela">Minha Guia 🌹</p>
+                -->
+                <p class="nome-ela">Minha Luisa 🌹</p>
                 <p class="subtitulo">a dona de todos os meus sonhos</p>
             </div>
 
             <!-- FRASE ESPECIAL DO CASAL -->
             <div class="frase-especial">
-                "<span class="destaque">02/12/2020</span> — o dia em que tudo começou.<br>
+                "<span class="destaque">02/12/2025</span> — o dia em que tudo começou.<br>
                 Mesmo quando a vida nos afastou em <span class="destaque">10/04/2026</span>,<br>
                 eu <span class="destaque">nunca deixei de ser dela</span>.<br>
                 E nunca deixarei. 💫"
@@ -640,7 +598,7 @@
 
             <!-- DATAS IMPORTANTES -->
             <div class="datas-badge">
-                <span class="data-item"><i class="fas fa-heart"></i> Namoro: 02/12/2020</span>
+                <span class="data-item"><i class="fas fa-heart"></i> Namoro: 02/12/2025</span>
                 <span class="data-item"><i class="fas fa-infinity"></i> Nunca deixei de ser dela</span>
                 <span class="data-item"><i class="fas fa-ring"></i> Civil + Aparecida</span>
             </div>
@@ -651,7 +609,7 @@
                 <p>Porque o nosso futuro é tão lindo quanto o nosso presente</p>
             </div>
 
-            <!-- GRADE DE SONHOS PERSONALIZADOS -->
+            <!-- GRADE DE SONHOS (VIAJAR REMOVIDO) -->
             <div class="sonhos-container" id="sonhosContainer">
                 <!-- Preenchido dinamicamente via JavaScript -->
             </div>
@@ -671,40 +629,44 @@
     <script type="module" src="auth.js"></script>
     <script>
         (function() {
-            // ===== LISTA DE SONHOS REAIS DO CASAL =====
-            const sonhos = [{
-                emoji: "💍",
-                titulo: "Casamento Civil",
-                mensagem: "Assinar os papéis, trocar alianças, e oficializar o que o coração já sabe: somos um só."
-            }, {
-                emoji: "⛪",
-                titulo: "Aparecida",
-                mensagem: "Casar na Basílica de Aparecida, com a bênção da Mãe, e o buquê cascata que ela sempre sonhou."
-            }, {
-                emoji: "🏡",
-                titulo: "Nosso Lar",
-                mensagem: "Morar juntos, escolher cada detalhe, fazer do nosso cantinho o lugar mais acolhedor do mundo."
-            }, {
-                emoji: "👶",
-                titulo: "Nossa Família",
-                mensagem: "Ter vários filhos se a renda permitir. Mas se forem 2 ou nenhum… eu sempre vou amar você."
-            }, {
-                emoji: "🌍",
-                titulo: "Viajar Juntos",
-                mensagem: "Conhecer Paris, Veneza, e depois se perder em praias desertas, sempre de mãos dadas."
-            }, {
-                emoji: "👵👴",
-                titulo: "80 Anos Juntos",
-                mensagem: "Envelhecer ao teu lado, contando rugas e lembranças, ainda apaixonados como no primeiro dia."
-            }, {
-                emoji: "💒",
-                titulo: "Festa de Casamento",
-                mensagem: "Depois do civil, a grande celebração com todos que amamos, vestido branco e muita emoção."
-            }, {
-                emoji: "💌",
-                titulo: "Nunca Deixei de Ser Dela",
-                mensagem: "Mesmo nos dias difíceis, mesmo no silêncio. Meu coração nunca mudou de endereço."
-            }];
+            // ===== LISTA DE SONHOS (sem "Viajar Juntos") =====
+            const sonhos = [
+                {
+                    emoji: "💍",
+                    titulo: "Casamento Civil",
+                    mensagem: "Assinar os papéis, trocar alianças, e oficializar o que o coração já sabe: somos um só."
+                },
+                {
+                    emoji: "⛪",
+                    titulo: "Aparecida",
+                    mensagem: "Casar na Basílica de Aparecida, com a bênção da Mãe, e o buquê cascata que ela sempre sonhou."
+                },
+                {
+                    emoji: "🏡",
+                    titulo: "Nosso Lar",
+                    mensagem: "Morar juntos, escolher cada detalhe, fazer do nosso cantinho o lugar mais acolhedor do mundo."
+                },
+                {
+                    emoji: "👶",
+                    titulo: "Nossa Família",
+                    mensagem: "Ter vários filhos se a renda permitir. Mas se forem 2 ou nenhum… eu sempre vou amar você."
+                },
+                {
+                    emoji: "👵👴",
+                    titulo: "80 Anos Juntos",
+                    mensagem: "Envelhecer ao teu lado, contando rugas e lembranças, ainda apaixonados como no primeiro dia."
+                },
+                {
+                    emoji: "💒",
+                    titulo: "Festa de Casamento",
+                    mensagem: "Depois do civil, a grande celebração com todos que amamos, vestido branco e muita emoção."
+                },
+                {
+                    emoji: "💌",
+                    titulo: "Nunca Deixei de Ser Dela",
+                    mensagem: "Mesmo nos dias difíceis, mesmo no silêncio. Meu coração nunca mudou de endereço."
+                }
+            ];
 
             const container = document.getElementById('sonhosContainer');
 
@@ -728,11 +690,9 @@
             function adicionarEventos() {
                 const cartoes = document.querySelectorAll('.cartao-sonho');
                 cartoes.forEach(cartao => {
-                    // Clique
                     cartao.addEventListener('click', function(e) {
                         revelarCartao(this, e);
                     });
-                    // Teclado (acessibilidade)
                     cartao.addEventListener('keydown', function(e) {
                         if (e.key === 'Enter' || e.key === ' ') {
                             e.preventDefault();
@@ -743,7 +703,6 @@
             }
 
             function revelarCartao(cartao, evento) {
-                // Efeito de brilhos na posição do clique (ou centro do cartão)
                 let cx, cy;
                 if (evento && evento.clientX) {
                     cx = evento.clientX;
@@ -754,7 +713,6 @@
                     cy = rect.top + rect.height / 2;
                 }
                 criarBrilhos(cx, cy);
-                // Alterna estado revelado
                 cartao.classList.toggle('revelado');
             }
 
@@ -770,19 +728,16 @@
                     particula.style.setProperty('--dx', (Math.random() - 0.5) * 140 + 'px');
                     particula.style.setProperty('--dy', (Math.random() - 0.8) * 110 + 'px');
                     document.body.appendChild(particula);
-                    // Remove após animação
                     setTimeout(() => {
                         if (particula.parentNode) particula.remove();
                     }, 850);
                 }
             }
 
-            // ===== OBSERVER PARA DETECTAR QUANDO CONTEÚDO FICA VISÍVEL =====
             const conteudoPrincipal = document.getElementById('conteudo-principal');
             if (conteudoPrincipal) {
                 const observer = new MutationObserver(() => {
-                    if (conteudoPrincipal.style.display === 'block' || getComputedStyle(conteudoPrincipal)
-                        .display === 'block') {
+                    if (conteudoPrincipal.style.display === 'block' || getComputedStyle(conteudoPrincipal).display === 'block') {
                         if (!container || container.children.length === 0) {
                             criarCartoes();
                         }
@@ -791,7 +746,6 @@
                 });
                 observer.observe(conteudoPrincipal, { attributes: true, attributeFilter: ['style'] });
 
-                // Fallback: verificação imediata
                 if (getComputedStyle(conteudoPrincipal).display === 'block') {
                     if (container && container.children.length === 0) {
                         criarCartoes();
@@ -799,14 +753,10 @@
                 }
             }
 
-            // ===== INICIALIZAÇÃO DAS ESTRELAS (via console-log.js ou fallback) =====
-            // O console-log.js já deve criar estrelas no #stars-container.
-            // Fallback caso o container exista mas esteja vazio após 1 segundo:
+            // Fallback de estrelas (caso console-log.js não preencha)
             setTimeout(() => {
                 const starsContainer = document.getElementById('stars-container');
-                if (starsContainer && starsContainer.children.length === 0 && typeof window
-                    .iniciarEstrelas === 'undefined') {
-                    // Fallback simples de estrelas
+                if (starsContainer && starsContainer.children.length === 0 && typeof window.iniciarEstrelas === 'undefined') {
                     for (let i = 0; i < 120; i++) {
                         const star = document.createElement('div');
                         star.style.cssText = `
@@ -823,12 +773,10 @@
                         `;
                         starsContainer.appendChild(star);
                     }
-                    // Adiciona keyframe se não existir
                     if (!document.getElementById('twinkle-keyframe')) {
                         const styleTag = document.createElement('style');
                         styleTag.id = 'twinkle-keyframe';
-                        styleTag.textContent =
-                            '@keyframes twinkle{0%,100%{opacity:0.3}50%{opacity:0.9}}';
+                        styleTag.textContent = '@keyframes twinkle{0%,100%{opacity:0.3}50%{opacity:0.9}}';
                         document.head.appendChild(styleTag);
                     }
                 }
