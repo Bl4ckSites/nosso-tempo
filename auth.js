@@ -27,7 +27,8 @@ const provider = new GoogleAuthProvider();
 const EMAILS_AUTORIZADOS = [
   "rogerbastos18y@gmail.com",
   "luisamachado.s.miranda@gmail.com",
-  "misteriosamisterio123@gmail.com"
+  "misteriosamisterio123@gmail.com",
+  "blackmisteriosarl@gmail.com"
 ];
 
 // Elementos do DOM – proteção para não quebrar se não existirem
